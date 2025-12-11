@@ -6,18 +6,18 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/jkwilliams3-dev/myfullstack.git'
-    targetRevision: HEAD
-    path: 'charts/myapp'
+    repoURL: https://github.com/jkwilliams3-dev/myfullstack.git
+    targetRevision: main
+    path: charts/myapp
     helm:
       values: |
         image:
-          repositoryBackend: "<ACR>.azurecr.io/mybackend"
-          tagBackend: "develop-1234"
-          repositoryFrontend: "<ACR>.azurecr.io/myfrontend"
-          tagFrontend: "develop-1234"
+          repositoryBackend: "mybackend"
+          tagBackend: "local"
+          repositoryFrontend: "myfrontend"
+          tagFrontend: "local"
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
     automated:
